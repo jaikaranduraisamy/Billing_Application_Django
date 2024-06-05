@@ -1,0 +1,43 @@
+version: '3.3'
+
+services:
+
+  #Frontend Service - ReactJS
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+
+  #Backend Service - Django
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PORT=8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  #Database Service - Postgres
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    
+volumes:
+  pgdata:
+

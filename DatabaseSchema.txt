@@ -1,0 +1,24 @@
+Table tblProduct {
+  ProductId Integer [primary key, increment]
+  ProductName Varchar2 [not null]
+  AvailableStock integer [not null]
+  UnitPrice Float [not null]
+  TaxPercentage Float [not null]
+}
+
+Table tblCustomer {
+  CustomerId Integer [primary key, increment]
+  CustomerEmailId Varchar2 [not null]
+}
+
+Table tblOrder {
+  OrderId Integer [primary key, increment]
+  CustomerId Integer [ref:>tblCustomer.CustomerId, not null]
+  ProductIds Varchar2 [ref:< tblProduct.ProductId, not null]
+  Quantity Varchar2 [not null]
+  PaidDenominations Varchar2 [not null]
+  BalanceDenominations Varchar2 [not null]
+  TotalAmountPaid Float [not null]
+  TotalAmountReturn Float [not null]
+  OrderDate DateTime [not null]
+}
