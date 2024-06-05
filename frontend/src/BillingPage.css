@@ -1,0 +1,112 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top-pane {
+  flex: 0 0 40%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.bottom-pane {
+  flex: 0 0 60%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.line {
+  box-sizing: border-box;
+  height: 2px;
+  background-color: black;
+  margin-bottom: 25px;
+}
+
+.text-style {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.form-group3 {
+  display: flex;
+  margin-top: 10px;
+  width: 26%;
+  /* direction: rtl; */
+}
+.form-group2 {
+  display: flex;
+  margin-top: 10px;
+}
+
+.labelDiv {
+  width: 170px;
+  display: flex;
+  direction: rtl;
+  align-items: center;
+}
+.form-group3 label {
+  margin-right: 10px;
+}
+
+.form-group label {
+  margin-right: 10px;
+}
+
+.form-group input,
+.form-group2 input,
+.form-group3 input {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-group2 label {
+  margin-right: 0px;
+  margin-left: 37px;
+  margin-top: 17px;
+}
+
+.input_button {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-top: 10px;
+}
+
+.input_button Button,
+.form-group Button {
+  margin-left: 15px;
+  width: auto;
+  padding: 6px 16px; /* Adjust padding for buttons */
+}
+
+.table-container {
+  max-height: 170px;
+  overflow-y: auto;
+  margin-top: 10px; /* Add margin for spacing */
+}
+
+.custom-table {
+  border-collapse: collapse;
+  width: 100%; /* Make table take full width */
+}
+
+.custom-table td {
+  padding: 8px;
+}
+
+.scroll-indicator {
+  margin-top: 10px;
+  text-align: center;
+  font-style: italic;
+}
