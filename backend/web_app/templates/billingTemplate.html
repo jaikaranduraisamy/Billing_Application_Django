@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <title>Bill Reciept</title>
+    <style type="text/css">
+      .table {
+        border-collapse: collapse;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 2px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .container {
+        text-align: right;
+      }
+      .heading_div {
+        font-size:15px;
+        font-weight: 100;
+      }
+      
+      @page {
+        size:a4 portrait;
+        .main_div {
+          top: 30pt;
+          bottom: 30pt;
+          left: 50pt;
+          right: 50pt;
+        }
+      }
+    </style>
+  </head>
+  <body>
+  <div class="main_div">
+    <center><b>Billing Page</b></center>
+    <div>
+      <p><b>Customer Email : </b> {{customerEmail}}</p>
+    </div>
+    <div>
+      <p><b>Bill section : </b></p>
+      <table class="table">
+        <tr>
+          <th><p> Product Id </p></th>
+          <th><p> Product Quantity </p></th>
+        </tr>
+        {% for component in billSection %}
+        <tr>
+          <td><p>{{component.product_Id}}</p></td>
+          <td><p>{{component.quantity}}</p></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <br />
+    <div class="container">
+      <div class="heading_div"><p>Total price without tax: {{ billAmount }}</p></div>
+    </div>
+    <div class="container">
+      <div class="heading_div"><p>Total tax payable: {{ billTotalTax }}</p></div>
+    </div>
+    <div class="container">
+      <div class="heading_div"><p>Net price of the purchased item: {{ billNetPrice }}</p></div>
+    </div>
+    <div class="container">
+      <div class="heading_div"><p>Rounded down value of the purchased item net price: {{ billRoundPrice }}</p></div>
+    </div>
+    <div class="container">
+      <div class="heading_div"><p>Balance payable to the customer: {{ billBalanceAmount }}</p></div>
+    </div>
+    
+    
+    <br />
+    <hr />
+    <br />
+    
+    
+    <div class="container">
+      <div class="heading_div"><p>Balance payable to the customer: </p></div>
+    </div>
+    <div class="container">
+      <ul>
+        {% for item_dict in returnDenominations %}
+          {% for key, value in item_dict.items %}
+            <li>{{ key }}: {{ value }}</li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  </body>
+</html>
